@@ -3,7 +3,7 @@ Combination of VajSkids UberChip and PSXTAL projects, Combining a modchip and an
 <br />
 <br />
 
-##Place holder for more information as I write it.<br />
+## Place holder for more information as I write it.<br />
 I'll put more information here don't worry.
 <br />
 
