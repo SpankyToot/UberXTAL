@@ -71,6 +71,7 @@ void NewDisc() {
 }
 
 void DriveLidStatus() {
+    senseregion();
   if (DRIVE_LID_SENS_REG == Lid_Closed) { //state of this register after initial injection routine with lid closed
     bitcounter = 0;                  //This reset is in case of multidisc/ multiple injection routines
   }
@@ -205,5 +206,4 @@ void loop() {
     DriveLidStatus();
   }
   PowerUpDelay();             // else jump to here
-  senseregion();
 }
