@@ -11,3 +11,5 @@ I'll put more information here don't worry.
 Started adding my components to Uberchip V2.1<br />
 ### V1.01<br />
 Used updated 'PU-18 with region select' from VajSkid and did some cleaning of my code to suit his new code.<br />
+### V1.02<br />
+Add serial output for debugging, start work on PSX revision options<br />
