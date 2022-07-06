@@ -5,7 +5,7 @@ PSX         Nano      DFO
 Data        D12
 Gate        D2
 Lid Sense   D8
-GND         GND
+GND         GND        GND
 +5V         +5V
 GPU Sense   A0
             A2         PAL
