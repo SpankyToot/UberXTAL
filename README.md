@@ -4,11 +4,12 @@ Combining existing projects by VajskiDs, PSXTAL and tehUberChip.<br />
 Arduino Nano based PSX modchip and with the combination of a DFO board from VajskiDs, also an automatic video output clock switcher.<br />
 <br />
 ## Installation<br />
-I'm working on it, I'll put more information here don't worry.
+You can find reference images of each model, along with its pinout, in its own directory inside the Installation directory.<br />
+There is also a list of tested PSX models inside the Installation directory.<br />
 <br />
 ## Compatibility<br />
 Currently tested working on PU-18 PSX, but should work on any PSX revision PU-20 or lower.<br />
-Goal is to expand compatibility to all PSX Models.<br />
+Goal is to expand compatibility to all PSX models.<br />
 <br />
 ### Revisions
 V1.00: Started adding the PSXTAL components to Uberchip V2.1<br />
