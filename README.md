@@ -13,3 +13,5 @@ Started adding my components to Uberchip V2.1<br />
 Used updated 'PU-18 with region select' from VajSkid and did some cleaning of my code to suit his new code.<br />
 ### V1.02<br />
 Add serial output for debugging, start work on PSX revision options<br />
+### V1.03<br />
+Added a lot of debugging and changed to 5V power source from 3.5V to increase stability Now using 3.5V as a trigger for debug. Also reorganised a few things for cleanliness and stability.<br />
