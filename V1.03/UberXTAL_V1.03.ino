@@ -16,7 +16,7 @@ const int Lid_Closed = (0B000000);
 int bitcounter = 0; //variable for injection loop storage
 const int BENCHMARK = 500; // Value sensed between PAL and NTSC values. PAL=0, NTSC=750 and Off-250
 int XTALMODE = 00;
-float input = 0;
+int input = 0;
 
 //*****************REGION SELECT****************************            
 // EUROPE/AUSTRALIA/NEWZEALAND = 1    (SCEE)
