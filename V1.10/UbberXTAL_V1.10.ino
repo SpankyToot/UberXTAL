@@ -1,4 +1,39 @@
-//Define the used pins
+//                                                                 ,----,                ,--,    
+//                                                               ,/   .`|             ,---.'|    
+//                                            ,--,     ,--,    ,`   .'  : ,---,       |   | :    
+//           ,--,  ,---,                      |'. \   / .`|  ;    ;     /'  .' \      :   : |    
+//         ,'_ /|,---.'|               __  ,-.; \ `\ /' / ;.'___,/    ,'/  ;    '.    |   ' :    
+//    .--. |  | :|   | :             ,' ,'/ /|`. \  /  / .'|    :     |:  :       \   ;   ; '    
+//  ,'_ /| :  . |:   : :      ,---.  '  | |' | \  \/  / ./ ;    |.';  ;:  |   /\   \  '   | |__  
+//  |  ' | |  . .:     |,-.  /     \ |  |   ,'  \  \.'  /  `----'  |  ||  :  ' ;.   : |   | :.'| 
+//  |  | ' |  | ||   : '  | /    /  |'  :  /     \  ;  ;       '   :  ;|  |  ;/  \   \'   :    ; 
+//  :  | | :  ' ;|   |  / :.    ' / ||  | '     / \  \  \      |   |  ''  :  | \  \ ,'|   |  ./  
+//  |  ; ' |  | ''   : |: |'   ;   /|;  : |    ;  /\  \  \     '   :  ||  |  '  '--'  ;   : ;    
+//  :  | : ;  ; ||   | '/ :'   |  / ||  , ;  ./__;  \  ;  \    ;   |.' |  :  :        |   ,/     
+//  '  :  `--'   \   :    ||   :    | ---'   |   : / \  \  ;   '---'   |  | ,'        '---'      
+//  :  ,      .-./    \  /  \   \  /         ;   |/   \  ' |           `--''                     
+//   `--`----'   `-'----'    `----'          `---'     `--`                                      
+//
+//
+//  A joint project by VajskiDs and SpankyToot
+//  Combining existing projects by VajskiDs, PSXTAL and tehUberChip.
+//  PSX modchip and with the combination of a DFO board from VajskiDs, also an automatic video output clock switcher
+//
+//*****************REGION SELECT****************************            
+// EUROPE/AUSTRALIA/NEWZEALAND = 1    (SCEE)
+// USA = 2                            (SCEA)
+// JP= 3                              (SCEI)
+int MAGICKEY = 1;                                               //   <----------------------------------------------------------------------------------REGION SELECT!!
+//**********************************************************
+
+//*****************REVISION SELECT**************************            
+// PU-20 or lower = 1                 (SCPH-100X through SCPH-590X)
+// PU-22 or higher = 2                (SCPH-700X through SCPH-9000X and SCPH-10X)
+int REVISION = 1;                                               //   <----------------------------------------------------------------------------------REVISION SELECT!!
+//**********************************************************
+
+
+
 #define DRIVE_LID_SENS 8 // D8 to Lid switch on PSX
 #define GATE 2 // D2 to GATE on PSX
 #define DATA 12 // D12 to DATA on PSX
@@ -14,22 +49,10 @@ const int Lid_Open = (0B000001); //so we don't have to refer to the states in bi
 const int Lid_Closed = (0B000000);
 int bitcounter = 0; //variable for injection loop storage
 const int BENCHMARK = 500; // Value sensed between PAL and NTSC values. PAL=0, NTSC=750 and Off-250
-//int XTALMODE = 00; // A Reminder for later
+//int XTALMODE = 00; // A Reminder for later to setup a synth clock for later revision boards
 int VideoRegion = 0; // Value of GPU output
 
-//*****************REGION SELECT****************************            
-// EUROPE/AUSTRALIA/NEWZEALAND = 1    (SCEE)
-// USA = 2                            (SCEA)
-// JP= 3                              (SCEI)
-int MAGICKEY = 1;                                               //   <----------------------------------------------------------------------------------REGION SELECT!!
-//**********************************************************
-
-//*****************REVISION SELECT**************************            
-// PU-20 or lower = 1                 (SCPH-100X through SCPH-590X)
-// PU-22 or higher = 2                (SCPH-700X through SCPH-9000X and SCPH-10X)
-int REVISION = 1;                                               //   <----------------------------------------------------------------------------------REVISION SELECT!!
-//**********************************************************
-
+// Region injection strings
 char SCEE[] = "S10011010100100111101001010111010010101110100";
 char SCEA[] = "S10011010100100111101001010111010010111110100";
 char SCEI[] = "S10011010100100111101001010111010010110110100";
@@ -51,7 +74,7 @@ void setup() {
     pinMode (PAL, INPUT);
     digitalWrite(NTSC, HIGH);
   }    //Set boot video region
-  PowerUpDelay();
+  PowerUpDelay(); // Only needs this to run once
 }
 
 void NewDisc() { // runs in game multidisc change injection
@@ -60,10 +83,9 @@ void NewDisc() { // runs in game multidisc change injection
     delay (1500);
   }
   while (DRIVE_LID_SENS_REG == Lid_Open);
-  
-  if (MAGICKEY == 1) {injectSCEE();}
-  if (MAGICKEY == 2) {injectSCEA();}
-  if (MAGICKEY == 3) {injectSCEI();}
+    if (MAGICKEY == 1) {injectSCEE();}
+    if (MAGICKEY == 2) {injectSCEA();}
+    if (MAGICKEY == 3) {injectSCEI();}
 }
 
 void DriveLidStatus() {
