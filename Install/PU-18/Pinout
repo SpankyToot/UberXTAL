@@ -1,9 +1,13 @@
-Data
-Gate_WFCK
-Lid Sense
-GND
-+5V
-GPU Sense
-DFO PAL
-DFO NTSC
-DFO Out
+Reference images for exact points on PSX and DFO, the Nano should be self explanatory.
+
+PSX         Nano      DFO
+
+Data        D12
+Gate        D2
+Lid Sense   D8
+GND         GND
++5V         +5V
+GPU Sense   A0
+            A2         PAL
+            A1         NTSC
+DFO Out                OUT
