@@ -15,3 +15,5 @@ Used updated 'PU-18 with region select' from VajSkid and did some cleaning of my
 Add serial output for debugging, start work on PSX revision options<br />
 ### V1.03<br />
 Added a lot of debugging and changed to 5V power source from 3.5V to increase stability Now using 3.5V as a trigger for debug. Also reorganised a few things for cleanliness and stability.<br />
+### V1.10<br />
+Got it all working, changed XTAL power delivery as there was to little power given to active crystal and too much to inactive.<br />
