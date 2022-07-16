@@ -143,7 +143,7 @@ void injectSCEE() { //Injects SCEE String
         bitcounter = (bitcounter + 1);
       }
   }
-  while (bitcounter < 4400 && LoadAtBoot == true || bitcounter < 4430 && LoadAtBoot == false);
+  while (bitcounter < 4400 && LoadAtBoot == true || bitcounter < 4470 && LoadAtBoot == false);
 }
 
 void injectSCEA() { // Injects SCEA String
@@ -174,7 +174,7 @@ void injectSCEA() { // Injects SCEA String
         bitcounter = (bitcounter + 1);
       }
   }
-  while (bitcounter < 4400 && LoadAtBoot == true || bitcounter < 4430 && LoadAtBoot == false);
+  while (bitcounter < 4400 && LoadAtBoot == true || bitcounter < 4470 && LoadAtBoot == false);
 }
 
 void injectSCEI() { // Injects SCEI String
@@ -205,7 +205,7 @@ void injectSCEI() { // Injects SCEI String
         bitcounter = (bitcounter + 1);
       }
   }
-  while (bitcounter < 4400 && LoadAtBoot == true || bitcounter < 4430 && LoadAtBoot == false);
+  while (bitcounter < 4400 && LoadAtBoot == true || bitcounter < 4470 && LoadAtBoot == false);
 }
 
 void senseregion() { //Checks current GPU output and sets IO accordingly
