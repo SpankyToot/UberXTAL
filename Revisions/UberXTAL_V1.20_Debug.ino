@@ -76,7 +76,7 @@ void NewDisc() { // runs in game multidisc change injection
 
 void NewDisc() {
 
-  while (DRIVE_LID_SENS_REG == Lid_Open) do (;) // Do nothing until the lid is closed again, once closed, detect region and jump to corresponding inject routine
+  while (DRIVE_LID_SENS_REG == Lid_Open) do {;} // Do nothing until the lid is closed again, once closed, detect region and jump to corresponding inject routine
   
       delay (2500);                       
       if (MAGICKEY == 1) {injectSCEE();}
