@@ -360,7 +360,7 @@ void DriveLidStatus() {
     ;
   }
   while (DRIVE_LID_SENS_REG == Lid_Closed) // while the lid is closed, lock into a do nothing loop, it's only broken by lid being opened.
-    ;
+    
 
   NewDisc();  // If the lid isn't closed anymore, you must be switching discs, jump to newdisc()
 
