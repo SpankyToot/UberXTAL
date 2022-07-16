@@ -61,7 +61,7 @@ void NewDisc() { // runs in game multidisc change injection
   Serial.println(F("NewDisc")); //DEBUG
 
     if (bitcounter == 0); {
-      delay (500);
+      delay (2500);
       if (MAGICKEY == 1) {injectSCEE();}
       if (MAGICKEY == 2) {injectSCEA();}
       if (MAGICKEY == 3) {injectSCEI();}
