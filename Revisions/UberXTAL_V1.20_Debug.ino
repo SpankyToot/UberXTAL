@@ -57,83 +57,30 @@ char SCEE[] = "S10011010100100111101001010111010010101110100";
 char SCEA[] = "S10011010100100111101001010111010010111110100";
 char SCEI[] = "S10011010100100111101001010111010010110110100";
 
-
-
-/*
 void NewDisc() { // runs in game multidisc change injection
   Serial.println(F("NewDisc")); //DEBUG
 
-    if (bitcounter == 0); { // Of course it's zero? we reset in drivelidstatus()
+    if (bitcounter == 0); {
       delay (2500);
       if (MAGICKEY == 1) {injectSCEE();}
       if (MAGICKEY == 2) {injectSCEA();}
       if (MAGICKEY == 3) {injectSCEI();}
     }
 }
-*/
 
-//I Tidied up these functions and left your delay here prior to injections on a disc after lid close.
-
-void NewDisc() {
-
-  while (DRIVE_LID_SENS_REG == Lid_Open) do {;} // Do nothing until the lid is closed again, once closed, detect region and jump to corresponding inject routine
-  
-      delay (2500);                       
-      if (MAGICKEY == 1) {injectSCEE();}
-      if (MAGICKEY == 2) {injectSCEA();}
-      if (MAGICKEY == 3) {injectSCEI();}
-}
-
-
-void DriveLidStatus() {
-
-bitcounter = 0; // reset counter for injections
-
-while (DRIVE_LID_SENS_REG == Lid_Closed) do {;} // while the lid is closed, lock into a do nothing loop, it's only broken by lid being opened.
-
-NewDisc();  // If the lid isn't closed anymore, you must be switching discs, jump to newdisc()
-
-}
-
-
-
-
-
-/*
 void DriveLidStatus() {
   Serial.println(F("DriveLidStatus")); //DEBUG
-  
   if (DRIVE_LID_SENS_REG == Lid_Closed) { //state of this register after initial injection routine with lid closed
     bitcounter = 0; //This reset is in case of multidisc/ multiple injection routines
   }
- 
-  do{
+  else if (DRIVE_LID_SENS_REG == Lid_Open) {  //monitor register state with this pin for sensing purposes, data idles low after injection, only need to look for a change in one bit (lid sens pin)
+    do{
       Serial.println(F("DriveLid - Open")); //DEBUG
     }
   while (DRIVE_LID_SENS_REG == Lid_Open);
-    
     NewDisc();
   }
 }
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void PowerUpDelay() { // Patiently waits to inject at the precise moment its needed.
   Serial.println(F("PowerUpDelay")); //DEBUG
