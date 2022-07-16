@@ -105,6 +105,7 @@ void injectSCEE() { //Injects SCEE String
       }
       else if (SCEE[i] == 'S')
       {
+        senseregion();
         delay(stringdelay); //string delay when it hits 's' (end of injection string bits)
       }
       else if (DRIVE_LID_SENS_REG == Lid_Open)
@@ -135,6 +136,7 @@ void injectSCEA() { // Injects SCEA String
       }
       else if (SCEA[i] == 'S')
       {
+        senseregion();
         delay(stringdelay); //string delay when it hits 's' (end of injection string bits)
       }
       else if (DRIVE_LID_SENS_REG == Lid_Open)
@@ -165,6 +167,7 @@ void injectSCEI() { // Injects SCEI String
       }
       else if (SCEI[i] == 'S')
       {
+        senseregion();
         delay(stringdelay); //string delay when it hits 's' (end of injection string bits)
       }
       else if (DRIVE_LID_SENS_REG == Lid_Open)
